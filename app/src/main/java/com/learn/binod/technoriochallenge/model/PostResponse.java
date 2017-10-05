@@ -1,43 +1,33 @@
 
 package com.learn.binod.technoriochallenge.model;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class PostResponse {
 
-    @SerializedName("id")
+    @SerializedName("post")
     @Expose
-    private String id;
-    @SerializedName("title")
+    private Post post;
+    @SerializedName("tags")
     @Expose
-    private String title;
-    @SerializedName("body")
-    @Expose
-    private String body;
+    private List<String> tags = null;
 
-    public String getId() {
-        return id;
+    public Post getPost() {
+        return post;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
-    public String getTitle() {
-        return title;
+    public List<String> getTags() {
+        return tags;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 
 }

@@ -3,11 +3,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/root">
+    android:id="@+id/root"
+    android:layout_margin="15dp">
 
     <TextView
         android:id="@+id/post_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="29dp"/>
+        android:layout_margin="3dp"/>
+    <TextView
+        android:id="@+id/post_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"/>
 </LinearLayout>

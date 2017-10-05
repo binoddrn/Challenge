@@ -2,9 +2,7 @@ package com.learn.binod.technoriochallenge.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.DocumentsContract;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 
 import com.learn.binod.technoriochallenge.R;
 import com.learn.binod.technoriochallenge.activity.PostDetail;
+import com.learn.binod.technoriochallenge.model.Post;
 import com.learn.binod.technoriochallenge.model.PostResponse;
 
 import java.util.List;
@@ -22,10 +21,10 @@ import java.util.List;
  */
 
 public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.PostListViewHolder> {
-    List<PostResponse>responses;
+    List<Post>responses;
     Context context;
 
-    public PostListAdapter(List<PostResponse> responses,Context context) {
+    public PostListAdapter(List<Post> responses,Context context) {
         this.responses = responses;
         this.context=context;
     }
@@ -39,9 +38,10 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.PostLi
 
     @Override
     public void onBindViewHolder(PostListViewHolder holder, final int position) {
-        final PostResponse response=responses.get(position);
+        final Post response=responses.get(position);
+
         holder.postTitle.setText(response.getTitle());
-    //    holder.postBody.setText(response.getBody());
+        holder.postBody.setText(response.getBody());
         holder.root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +61,7 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.PostLi
         public PostListViewHolder(View itemView) {
             super(itemView);
             postTitle=(TextView)itemView.findViewById(R.id.post_title);
-          //  postBody=(TextView)itemView.findViewById(R.id.post_body);
+            postBody=(TextView)itemView.findViewById(R.id.post_body);
             root=(LinearLayout)itemView.findViewById(R.id.root);
         }
     }

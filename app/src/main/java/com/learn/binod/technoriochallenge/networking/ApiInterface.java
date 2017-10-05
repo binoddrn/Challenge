@@ -14,8 +14,8 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
     @GET("posts/")
-    Call<List<PostResponse>> getPostList();
+    Call<PostResponse> getPostList();
 
     @GET("post/{id}")
-    Call<List<PostResponse>>getPostDetail(@Path("id") String id);
+    Call<PostResponse>getPostDetail(@Path("id") String id);
 }

@@ -8,8 +8,6 @@ import android.util.Log;
 
 import com.learn.binod.technoriochallenge.R;
 import com.learn.binod.technoriochallenge.adapter.PostDetailAdapter;
-import com.learn.binod.technoriochallenge.adapter.PostListAdapter;
-import com.learn.binod.technoriochallenge.model.PostResponse;
 import com.learn.binod.technoriochallenge.networking.ApiClient;
 import com.learn.binod.technoriochallenge.networking.ApiInterface;
 

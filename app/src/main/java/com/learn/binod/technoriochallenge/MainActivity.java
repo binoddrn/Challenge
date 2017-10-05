@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.learn.binod.technoriochallenge.adapter.PostListAdapter;
+import com.learn.binod.technoriochallenge.model.Post;
 import com.learn.binod.technoriochallenge.model.PostResponse;
 import com.learn.binod.technoriochallenge.networking.ApiClient;
 import com.learn.binod.technoriochallenge.networking.ApiInterface;
@@ -51,22 +51,23 @@ public class MainActivity extends AppCompatActivity {
         });
         */
 
-
         ApiInterface apiInterface= ApiClient.getClient().create(ApiInterface.class);
-        Call<List<PostResponse>>call=apiInterface.getPostList();
-        call.enqueue(new Callback<List<PostResponse>>() {
+        Call<PostResponse> call=apiInterface.getPostList();
+        call.enqueue(new Callback<PostResponse>() {
             @Override
-            public void onResponse(Call<List<PostResponse>> call, Response<List<PostResponse>> response) {
-                List<PostResponse> responses=response.body();
-                adapter =new PostListAdapter(responses,MainActivity.this);
-                recyclerView.setAdapter(adapter);
+            public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
+              PostResponse postResponse= response.body();
 
+                Log.e("Response",postResponse.toString());
+                adapter=new PostListAdapter(postResponse.getPost(),MainActivity.this);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<List<PostResponse>> call, Throwable t) {
+            public void onFailure(Call<PostResponse> call, Throwable t) {
 
             }
         });
+
     }
 }
